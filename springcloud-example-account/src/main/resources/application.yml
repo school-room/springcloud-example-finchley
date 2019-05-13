@@ -1,0 +1,12 @@
+#Spring
+spring:
+  profiles:
+    active: dev
+
+# MyBatisPlus
+mybatisPlus:
+  mapperLocations: classpath:/mybatis/mappers/**/*Mapper.xml
+  typeAliasesPackage: com.eugene.springcloud.exampl.center.pojo.domain
+  global-config:
+    db-config:
+      id-type: uuid

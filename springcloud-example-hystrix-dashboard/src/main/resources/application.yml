@@ -1,0 +1,6 @@
+#Spring
+spring:
+  application:
+    name: turbine-hystrix-dashboard
+  profiles:
+    active: dev

@@ -1,0 +1,56 @@
+server:
+  port: 12000
+
+# Ribbon超时时间，Ribbon 的超时时间 < Hystrix的超时时间（因为涉及到Ribbon的重试机制）
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 3000
+  # 同一台实例最大重试次数，不包括首次调用（默认重试1次）。
+  MaxAutoRetries: 1
+  # 重试负载均衡其他的实例最大重试次数，不包括首次调用
+  MaxAutoRetriesNextServer: 1
+  # 是否所有操作都重试，设置为false只会对GET请求重试，反之对所有请求重试
+  OkToRetryOnAllOperations: false
+
+hystrix:
+  threadpool:
+    default:
+      # 并发执行的最大线程数，默认10。测试值120
+      coreSize: 80
+      # BlockingQueue的最大队列数，默认-1。测试值100
+      maxQueueSize: 20
+      # 即使maxQueueSize没有达到，默认为5。如果maxQueueSize=-1的话，则该选项不起作用。达到queueSizeRejectionThreshold该值后，请求也会被拒绝
+#      queueSizeRejectionThreshold: 100
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            # Hystrix超时时间
+            timeoutInMilliseconds: 6000
+
+spring:
+  application:
+    name: example-user
+  datasource:
+    url: jdbc:mysql://localhost:3306/user?useUnicode=true&characterEncoding=UTF-8&autoReconnectForPools=true&useSSL=false&serverTimezone=Hongkong
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    hikari:
+      pool-name: Example-User-HikariCP
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      connection-timeout: 30000
+      max-lifetime: 1800000
+
+eureka:
+  instance:
+    instanceId: ${spring.cloud.client.ip-address}:${server.port}
+    preferIpAddress: true
+    ipAddress: 127.0.0.1
+  client:
+    serviceUrl:
+      defaultZone: http://beone:beone@192.168.60.203:10000/eureka/

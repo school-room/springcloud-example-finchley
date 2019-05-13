@@ -1,0 +1,28 @@
+server:
+  port: 13000
+
+spring:
+  application:
+    name: example-account
+  datasource:
+    url: jdbc:mysql://localhost:3306/center?useUnicode=true&characterEncoding=UTF-8&autoReconnectForPools=true&useSSL=false&serverTimezone=Hongkong
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    hikari:
+      pool-name: Example-Account-HikariCP
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      connection-timeout: 30000
+      max-lifetime: 1800000
+#Eureka
+eureka:
+  instance:
+    instanceId: ${spring.cloud.client.ip-address}:${server.port}
+    preferIpAddress: true
+    ipAddress: 127.0.0.1
+  client:
+    serviceUrl:
+      defaultZone: http://beone:beone@192.168.60.203:10000/eureka/

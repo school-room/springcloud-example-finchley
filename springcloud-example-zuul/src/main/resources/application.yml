@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: springcloud-example-zuul
+  profiles:
+    active: dev

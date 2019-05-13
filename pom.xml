@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.beone</groupId>
+	<artifactId>springcloud-example-finchley</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+
+	<name>springcloud example finchley</name>
+	<description>SpringCloud Finchley Version Example project for Spring Boot</description>
+
+	<modules>
+		<module>springcloud-example-parent</module>
+		<module>springcloud-example-eureka</module>
+		<module>springcloud-example-zuul</module>
+		<module>springcloud-example-account</module>
+		<module>springcloud-example-user</module>
+		<module>springcloud-example-session</module>
+		<module>springcloud-example-pojo</module>
+		<module>springcloud-example-hystrix-dashboard</module>
+	</modules>
+</project>

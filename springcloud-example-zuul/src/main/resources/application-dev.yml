@@ -1,0 +1,20 @@
+server:
+  port: 11000
+
+eureka:
+  instance:
+    hostname: localhost
+    instanceId: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://beone:beone@192.168.60.203:10000/eureka/
+
+zuul:
+  ignored-services: '*'
+  routes:
+    api-user:
+      path: /user/**
+      service-id: example-user
+    api-center:
+      path: /account/**
+      service-id: example-center

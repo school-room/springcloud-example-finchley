@@ -1,0 +1,19 @@
+#Undertow
+server:
+  undertow:
+    io-threads: 4
+    worker-threads: 20
+    buffer-size: 1024
+    direct-buffers: true
+
+spring:
+  application:
+    name: springcloud-example-eureka-server
+  profiles:
+    active: dev
+  security:
+    basic:
+      enable: true
+    user:
+      name: beone
+      password: beone
