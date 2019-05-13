@@ -1,0 +1,34 @@
+server:
+  port: 15000
+spring:
+  cloud:
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+  application:
+    name: example-rabbitmq-producer
+  redis:
+    host: 192.168.60.250
+    port: 6379
+    password: beone
+    jedis:
+      pool:
+        max-active: 20
+        max-idle: 20
+        min-idle: 3
+        # 连接超时时间（毫秒）
+        max-wait: 500
+  rabbitmq:
+    addresses: 192.168.60.229
+    port: 5672
+    username: eugene
+    password: eugene
+eureka:
+  instance:
+    instanceId: ${spring.cloud.client.ip-address}:${server.port}
+    preferIpAddress: true
+    ipAddress: 127.0.0.1
+  client:
+    serviceUrl:
+      defaultZone: http://beone:beone@192.168.60.203:10000/eureka/

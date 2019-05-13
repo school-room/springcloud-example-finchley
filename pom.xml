@@ -18,6 +18,8 @@
 		<module>springcloud-example-account</module>
 		<module>springcloud-example-user</module>
 		<module>springcloud-example-session</module>
+		<module>springcloud-example-rabbitmq-producer</module>
+		<module>springcloud-example-rabbitmq-consumer</module>
 		<module>springcloud-example-pojo</module>
 		<module>springcloud-example-hystrix-dashboard</module>
 	</modules>
